@@ -1,16 +1,19 @@
-# inherited_widget
+a project to explain the inherited widget using MVC
 
-A new Flutter project.
+InheritedWidget -> the root widget in the tree
 
-## Getting Started
+data is passed and accessible through widgets by the context BUT only (passing var not functions)
+context wii search using dependOnInheritedWidgetOfExactType
 
-This project is a starting point for a Flutter application.
+    // want to access the data from the InheritedWidget widget BY CONTEXT
+    // the context keep asking the parent widgets until it reach the InheritedWidgetController we created in the root
+    // final stateWidget = context.dependOnInheritedWidgetOfExactType<InheritedWidgetController>();  //later put it in static method
+    // here i tell the context to find widget that is parent and of type InheritedWidgetController
+now we can access the data 
 
-A few resources to get you started if this is your first Flutter project:
+-------------------------
+using InheritedWidget to change the data is not enough because InheritedWidget in immutable -can not
+be change once it created-
+sol is Make the parent on the InheritedWidget is stateful widget --> it is not the root any more
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+STATEFUL --> INHERITED -> OUR WIDGETS
